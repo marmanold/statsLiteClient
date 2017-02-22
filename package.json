@@ -9,6 +9,10 @@
   },
   "author": "Michael Arnold <michael@rnold.info> (https://www.marmanold.com)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marmanold/statsLiteClient.git"
+  },
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",

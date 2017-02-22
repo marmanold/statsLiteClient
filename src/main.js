@@ -38,5 +38,3 @@ fetch('https://bz2gq8s1sb.execute-api.us-east-1.amazonaws.com/dev/log', {
   mode: 'no-cors',
   body: JSON.stringify(params)
 });
-
-//curl -X POST https://bz2gq8s1sb.execute-api.us-east-1.amazonaws.com/dev/log --data '{"site":"marcom","referrer":"http://localhost:1313/","browser":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:51.0) Gecko/20100101 Firefox/51.0","resolution":"2560x1440","page":"http://localhost:1313/","title":"Marmanold.com"}'
