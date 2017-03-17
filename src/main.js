@@ -14,7 +14,7 @@ const logBrowser = navigator.userAgent || 'Unknown';
 const logResolution = `${screen.width}x${screen.height}` || 'Unknown';
 const logPage = document.URL || 'Unknown';
 
-var logTitle = document.title;
+let logTitle = document.title;
 if (logTitle.indexOf(" - ") > 0) {
   logTitle = logTitle.split(' - ')[1];
 }
@@ -28,13 +28,12 @@ const params = {
     title: logTitle
 };
 
-var custHeaders = new Headers();
-custHeaders.append("Content-Type", "application/json");
-custHeaders.append("Access-Control-Allow-Origin", "*");
-
 fetch('https://bz2gq8s1sb.execute-api.us-east-1.amazonaws.com/dev/log', {
   method: 'POST',
-  headers: new Headers(),
-  mode: 'no-cors',
+  headers: {
+    'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+    'Content-Type': 'application/json'
+  },
+  mode: 'cors',
   body: JSON.stringify(params)
 });
