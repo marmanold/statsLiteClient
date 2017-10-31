@@ -1,22 +1,30 @@
-var path = require('path');
-var webpack = require('webpack');
+/*jslint esversion: 6*/
+const webpack = require('webpack');
+const MinifyPlugin = require("babel-minify-webpack-plugin");
+const path = require('path');
 
 module.exports = {
-	entry: ['whatwg-fetch', './src/main.js'],
+	entry: ['./src/main.js'],
 	output: {
-		path: path.join(__dirname, 'build'),
+		path: path.resolve(__dirname, 'build'),
 		filename: 'stats-lite-client.bundle.js'
 	},
-	devtool: 'inline-source-map',
 	module: {
-		loaders: [
-			{
-				test: path.join(__dirname, 'src'),
-				loader: 'babel-loader'
-			}
-		]
-	},
-	plugins: [
-    new webpack.optimize.UglifyJsPlugin({minimize: true})
-  ]
+        rules: [{
+            test: /\.js$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    babelrc: true,
+                    compact: true, 
+                    plugins: ['transform-runtime']
+                }
+            }
+        }]
+    },
+    plugins: [
+        new MinifyPlugin({removeConsole:true},{comments:false})
+    ],
+    target: 'web'
 };
