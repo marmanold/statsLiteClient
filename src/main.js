@@ -16,7 +16,7 @@ const logPage = document.URL || 'Unknown';
 
 let logTitle = document.title;
 if (logTitle.indexOf(" - ") > 0) {
-  logTitle = logTitle.split(' - ')[1];
+  logTitle = logTitle.split(' - ')[0];
 }
 
 const params = {
